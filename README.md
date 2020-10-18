@@ -24,3 +24,7 @@ You can copy `config.example.js` if you need a starting point.
 ### Usage
 
 `node index.js`
+
+
+
+API library derived from @MortJC https://github.com/MortJC/homebridge-platform-orbit

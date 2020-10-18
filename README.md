@@ -1,4 +1,8 @@
-# bhyve-api
+# bhyve-api-interval
+
+Run a Bhyve irrigation zone at a set interval. I use this to blow out my irrigation lines with a consumer grade air compressor.
+
+Use at your own risk.
 
 ### Setup: config.js
 
@@ -8,7 +12,7 @@ module.exports = {
     email: 'do@change.me',
     password: 'changeme'
   },
-  device: 1, // Of index
+  device: 0, // Of index - if you only have one device, just leave this zero
   zone: 1,
   runTime: 15,  // Seconds
   delayTime: 60, // Seconds

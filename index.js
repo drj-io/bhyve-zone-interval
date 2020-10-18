@@ -2,10 +2,10 @@ var orbitapi = require('./lib/orbitapi.js')
 var Timeout = require('await-timeout')
 var config = require('./config.js')
 
-var log = {
-  debug: function(l){
 
-  }
+// Remove verbose logging.  Otherwise replace with console.log
+var log = {
+  debug: function(l){}
 }
 
 go()
@@ -32,10 +32,6 @@ async function  go(){
         await Timeout.set(config.delayTime * 1000);
 
       }
-
-
-
-
 
   } catch(e){
     console.log('error', e)

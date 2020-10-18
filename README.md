@@ -27,4 +27,4 @@ You can copy `config.example.js` if you need a starting point.
 
 
 
-API library derived from @MortJC https://github.com/MortJC/homebridge-platform-orbit
+API library derived from https://github.com/MortJC/homebridge-platform-orbit

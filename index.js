@@ -1,7 +1,7 @@
 var orbitapi = require('./lib/orbitapi.js')
 var Timeout = require('await-timeout')
 var config = require('./config.js')
-
+var timer = require('./lib/countdown.js')
 
 // Remove verbose logging.  Otherwise replace with console.log
 var log = {
@@ -26,10 +26,10 @@ async function  go(){
         i++
         console.log(i, "running zone", config.zone, "on device", config.device)
         await devices[config.device].startZone(config.zone,1)
-        await Timeout.set(config.runTime * 1000);
+        await timer(config.runTime);
         console.log('stop!')
         await devices[config.device].stopZone()
-        await Timeout.set(config.delayTime * 1000);
+        await timer(config.delayTime);
 
       }
 

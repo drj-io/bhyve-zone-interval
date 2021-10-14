@@ -1,5 +1,4 @@
 var orbitapi = require('./lib/orbitapi.js')
-var Timeout = require('await-timeout')
 var config = require('./config.js')
 var timer = require('./lib/countdown.js')
 

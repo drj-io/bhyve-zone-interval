@@ -1,6 +1,6 @@
 module.exports = {
   auth: {
-    email: 'your_orbitz@email.com',
+    email: 'your_orbit@email.com',
     password: 'your_pw'
   },
   device: 1, // Of index

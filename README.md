@@ -1,6 +1,8 @@
 # bhyve-api-interval
 
-Run through a list of Bhyve irrigation zone at a set interval and turn them on for a given time (in seconds) and off for a given time (in seconds) and wait for a given time (in seconds). I use this to blow out my irrigation lines with a consumer grade air compressor.
+This program uses the Orbit B-Hyve API to open sprinkler valves individually for a given amount of time (in seconds) and then wait for a given amount of time (in seconds) on a single Orbit B-Hyve device. You can provide a list of zones and it will run through each zone for a given number of intervals.
+
+I use this to blow out my sprinkler system using a 2½ horsepower compressor.
 
 Use at your own risk.
 
@@ -9,12 +11,12 @@ Use at your own risk.
 ```
 module.exports = {
   auth: {
-    email: 'your_orbitz_email',
+    email: 'your_orbit_email',
     password: 'your_pw'
   },
   device: 2, // Of index
   zoneList: [1, 2, 3, 4, 5, 6, 7],
-  repeatsPerZone: 15, // times
+  repeatsPerZone: 15, // number of times to open each zone
   runTime: 3,  // Seconds
   delayTime: 2, // Seconds
 }

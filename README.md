@@ -37,6 +37,14 @@ module.exports = {
 
 `node run.js`
 
+### New to Node JS?
+
+Check out https://nodejs.org/en/ for information and installation instructions.
+
+Tested on MacOS, but should work on Linux and Windows.
+
 
 
 API library derived from https://github.com/MortJC/homebridge-platform-orbit
+
+Note: This script might not do as complete of a job at blowing out sprinklers as a professional company.  Your milage may vary depending on your compressor, your system, your climate, and other unknown factors.

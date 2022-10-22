@@ -26,6 +26,7 @@ async function  go(){
         console.log('no devices found. Is your username and password correct?');
         process.exit(1);
       }
+
       if (process.argv.includes('-l')){
         // list devices & zones
         devices.forEach(function(e,i){
@@ -36,21 +37,21 @@ async function  go(){
         })
         process.exit(0);
       }
+
       let dstring = "";
 
       const device = devices[config.device];
       devices.forEach((e,i) => dstring += i + ":" +  e._name + " ");
       console.log(`${devices.length} devices available: ${dstring}`);
 
-
       if (typeof device == "undefined"){
         console.log(`Error: Device ${config.device} not found`);
         process.exit(1);
       }
+
       console.log(`using ${config.device}:${device._name}`);
+
       if (typeof config.zoneList === "number") config.zoneList = [config.zoneList];
-
-
 
       for(zoneIndex in config.zoneList){
         let zone = config.zoneList[zoneIndex];

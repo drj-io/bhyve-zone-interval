@@ -56,7 +56,11 @@ async function  go(){
       for(zoneIndex in config.zoneList){
         let zone = config.zoneList[zoneIndex];
         zoneCount = 0;
-        if(typeof device._zones[zone].name != 'string'){
+        let zoneName = device._zones.find(obj => {
+          return obj.station === zone;
+        }).name;
+
+        if(typeof zoneName != 'string'){
           console.log(`zone ${zone} not found`);
         } else {
           for(j = 0; j < config.repeatsPerZone; j++){
@@ -73,7 +77,7 @@ async function  go(){
 async function runZone(zone, device, timeInSeconds){
   count++;
 
-  var zoneName = device._zones.find(obj => {
+  let zoneName = device._zones.find(obj => {
     return obj.station === zone;
   }).name;
   console.log(`${count}:${zoneCount} - running zone "${zoneName}" (${zone}) on device ${device._name}`)

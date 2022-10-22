@@ -1,6 +1,6 @@
 # bhyve-api-interval
 
-Run a Bhyve irrigation zone at a set interval. I use this to blow out my irrigation lines with a consumer grade air compressor.
+Run through a list of Bhyve irrigation zone at a set interval and turn them on for a given time (in seconds) and off for a given time (in seconds) and wait for a given time (in seconds). I use this to blow out my irrigation lines with a consumer grade air compressor.
 
 Use at your own risk.
 
@@ -9,22 +9,23 @@ Use at your own risk.
 ```
 module.exports = {
   auth: {
-    email: 'do@change.me',
-    password: 'changeme'
+    email: 'your_orbitz_email',
+    password: 'your_pw'
   },
-  device: 0, // Of index - if you only have one device, just leave this zero
-  zone: 1,
-  runTime: 15,  // Seconds
-  delayTime: 60, // Seconds
+  device: 2, // Of index
+  zoneList: [1, 2, 3, 4, 5, 6, 7],
+  repeatsPerZone: 15, // times
+  runTime: 3,  // Seconds
+  delayTime: 2, // Seconds
 }
 ```
 
 You can copy `config.example.js` if you need a starting point.
 
+`cp config.example.js config.js`
+
 ### Usage
 
-`node index.js`
-
-
+`node run.js`
 
 API library derived from https://github.com/MortJC/homebridge-platform-orbit

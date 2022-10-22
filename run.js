@@ -6,16 +6,36 @@ let zoneCount = 0;
 
 // Remove verbose logging.  Otherwise replace with console.log
 let log = {
-  debug: function(l){};
+  debug: function(l){}
 }
 
 go();
 
 async function  go(){
+      let devices = undefined;
+      try{
+        const O = await new orbitapi(log, config.auth.email, config.auth.password);
+        await O.getToken();
+        devices = await O.getDevices();
+      } catch(e){
+        console.log("ERROR", e)
+        process.exit(1)
+      }
 
-      const O = await new orbitapi(log, config.auth.email, config.auth.password);
-      await O.getToken();
-      const devices = await O.getDevices();
+      if(devices == undefined || devices.length == 0){
+        console.log('no devices found. Is your username and password correct?');
+        process.exit(1);
+      }
+      if (process.argv.includes('-l')){
+        // list devices & zones
+        devices.forEach(function(e,i){
+          console.log(`Device #${i} - ${e._name}`)
+          e._zones.forEach(function(z,zi){
+            console.log(` - Zone ${z.station}: ${z.name}`);
+          })
+        })
+        process.exit(0);
+      }
       let dstring = "";
 
       const device = devices[config.device];

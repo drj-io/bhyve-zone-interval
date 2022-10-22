@@ -7,6 +7,11 @@ I use this to blow out my sprinkler system using a 2½ horsepower compressor.
 Use at your own risk.
 
 ### Setup: config.js
+You can copy `config.example.js` if you need a starting point.
+
+`cp config.example.js config.js`
+
+example:
 
 ```
 module.exports = {
@@ -22,12 +27,16 @@ module.exports = {
 }
 ```
 
-You can copy `config.example.js` if you need a starting point.
 
-`cp config.example.js config.js`
 
-### Usage
+### To just list your available devices and zones
+
+`node run.js -l`
+
+### Usage to run through each zone configured in config.js
 
 `node run.js`
+
+
 
 API library derived from https://github.com/MortJC/homebridge-platform-orbit
